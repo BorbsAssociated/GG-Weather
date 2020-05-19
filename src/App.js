@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import axios from "axios"
 import './App.css';
-
-import HorrorGameTest from "./Components/HorrorGamesTest"
+import gamesByGenera from "./data"
+import ActionGamesTest from "./Components/ActionGamesTest"
 
 function App() {
 
@@ -55,7 +55,7 @@ let locationWeather = ''
 ////GET VIDEOGAME INFO BY ID (3498)
   axios({
     "method":"GET",
-    "url":"https://rawg-video-games-database.p.rapidapi.com/games/2077",
+    "url":"https://rawg-video-games-database.p.rapidapi.com/games/58134",
     "headers":{
     "content-type":"application/octet-stream",
     "x-rapidapi-host":"rawg-video-games-database.p.rapidapi.com",
@@ -122,7 +122,7 @@ let ourVideoGameGeneres = []
      <h1>BORBS ASSOCIATED</h1>
      <h4>presents</h4>
      <h1>GG WEATHER</h1>
-     <HorrorGameTest />
+     <ActionGamesTest />
     </div>
   );
 }
