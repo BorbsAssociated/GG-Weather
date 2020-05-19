@@ -6,6 +6,9 @@ const ActionGamesTest = () => {
 
 const [image,setImage] = useState("")
 const [gameTitle, setGameTitle] = useState("")
+const [description, setDescription] = useState("")
+const [rating, setRating] = useState("")
+
 
   function getMoreInfo(gameId) {
     ////GET VIDEOGAME INFO BY ID (3498)
@@ -22,7 +25,8 @@ const [gameTitle, setGameTitle] = useState("")
         console.log(response);
         setImage(response.data["background_image"])
         setGameTitle(response.data.name)
-        console.log(response.data.name);
+        setDescription(response.data.description)
+        setRating(response.data.rating)
       })
       .catch((error) => {
         console.log(error);
@@ -44,7 +48,7 @@ const [gameTitle, setGameTitle] = useState("")
           </button>
         </li>
         <li>
-          <button onClick={() => getMoreInfo(29179)}>God Of War</button>
+          <button onClick={() => getMoreInfo(22508)}>Overwatch</button>
         </li>
         <li>
           <button onClick={() => getMoreInfo(259801)}>
@@ -55,7 +59,9 @@ const [gameTitle, setGameTitle] = useState("")
 
       <h2>Game Title:</h2>
       <h3>{gameTitle}</h3>
+      <h3>Rating: {rating}</h3>
       <img src={image} width="600" height="400"></img>
+      <h3>Description: {description}</h3>
     </>
   );
 };

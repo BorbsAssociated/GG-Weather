@@ -1,14 +1,14 @@
 let gamesByGenera = {
   Action : [
     {"Spider-Man" : 58134},
-    {"Grand Theft Auto V" : 3498},
-    {"God Of War" : 29179}, 
+    {"Grand Theft Auto V" : 3498}, 
     {"Final Fantasy VII" : 259801},
     {"Overwatch" : 22508},
     {"Nioh" : 401},
     {"Sekiro: Shadows Die Twice" : 2489},
     {"Dead Cells" : 11726},
     {"Control"  : 58812},
+    {"God Of War" : 29179},
     {"Days Gone" : 29338},
   ],
   Adventure : [
