@@ -36,7 +36,7 @@ axios({
     console.log(response.data.list[0].weather[0].main)
     console.log(response.data.list[0].weather[0].description)
     setWeather(response.data.list[0].weather[0].main)
-    setDescription(response.data.list[0].weather[0].description)
+    // setDescription(response.data.list[0].weather[0].description)
   })
   .catch((error)=>{
     console.log(error)
