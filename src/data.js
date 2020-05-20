@@ -1,6 +1,6 @@
-let gamesByGenera = {
+exports.gamesByGenera = {
   Action : [
-    {"Spider-Man" : 58134},
+    {"Spider-Man" : 58134}, //[22508,58812,29338,254542,37357,7689,274480,3556,39,1438,59632,421698]
     {"Grand Theft Auto V" : 3498}, 
     {"Final Fantasy VII" : 259801},
     {"Overwatch" : 22508},
@@ -102,7 +102,7 @@ let gamesByGenera = {
   ],
 }
 
-let weathers = {
+exports.weathers = {
   "Mist" : ["Western","Thriller", "Mystery","Family"],
   "Smoke" : ["Horror", "Action","Adventure","Family"],
   "Haze" : ["Western","Action","Thriller", "Mystery"],
@@ -127,4 +127,3 @@ let weathers = {
 //                   "Family", "Fighting", "Board Games", "Educational", "Card"]
 
 
-export {gamesByGenera, weathers}

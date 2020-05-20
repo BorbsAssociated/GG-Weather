@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import axios from "axios"
 import './App.css';
 import gamesByGenera from "./data"
-import ActionGamesTest from "./Components/ActionGamesTest"
+import SingleGameView from "./Components/SingleGameView"
 import Title from "./Components/Title"
 import Weather from "./Components/Weather"
 import GameGallery from "./Components/GameGallery"
@@ -17,7 +17,6 @@ function App() {
       <Title />
       <Weather />
       <GameGallery />
-      <ActionGamesTest />
     </div>
   );
 }
