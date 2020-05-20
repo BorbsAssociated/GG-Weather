@@ -102,15 +102,29 @@ let gamesByGenera = {
   ],
 }
 
-let weathers = ["Mist","Smoke","Haze","Dust","Fog","Sand","Ash",
-"Squall","Tornado","Snow","Rain","Drizzle","Thunderstorm",
-"Clear","Clouds"]
+let weathers = {
+  "Mist" : ["Western","Thriller", "Mystery","Family"],
+  "Smoke" : ["Horror", "Action","Adventure","Family"],
+  "Haze" : ["Western","Action","Thriller", "Mystery"],
+  "Dust" : ["Western","Thriller", "Mystery"],
+  "Fog" : ["Horror", "Thriller","Romance","Action"],
+  "Sand" : ["Western","Thriller", "Mystery","Family"],
+  "Ash" : ["Western","Thriller", "Mystery", "Horror"],
+  "Squall" : ["Western","Action","Adventure","Horror"],
+  "Tornado" : ["Western","Action","Adventure","Horror"],
+  "Snow" : ["Family","Adventure","Romance","Action"],
+  "Rain" : ["Romance", "Family","Mystery","Thriller"],
+  "Drizzle" : ["Romance", "Family","Mystery","Thriller"],
+  "Thunderstorm" : ["Action", "Adventure","Romance","Horror"],
+  "Clear" : ["Action", "Family","Adventure"],
+  "Clouds" : ["Mystery","Romance","Thriller","Western"],
+}
 
 
-let vgGeneres = ["Action", "Indie", "Adventure", "RPG", "Strategy", 
-                  "Shooter", "Casual", "Simulation", "Puzzle", "Arcade", 
-                  "Platformer", "Racing", "Sports", "Massively Multiplayer", 
-                  "Family", "Fighting", "Board Games", "Educational", "Card"]
+// let vgGeneres = ["Action", "Indie", "Adventure", "RPG", "Strategy", 
+//                   "Shooter", "Casual", "Simulation", "Puzzle", "Arcade", 
+//                   "Platformer", "Racing", "Sports", "Massively Multiplayer", 
+//                   "Family", "Fighting", "Board Games", "Educational", "Card"]
 
 
-export default gamesByGenera
+export {gamesByGenera, weathers}
