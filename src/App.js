@@ -16,7 +16,6 @@ function App() {
     <div className="App">
       <Title />
       <Weather />
-      <GameGallery />
     </div>
   );
 }

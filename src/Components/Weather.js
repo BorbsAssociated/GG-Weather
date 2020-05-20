@@ -48,7 +48,6 @@ function Weather() {
 
     return (
         <>
-
               <form className="d-flex mt-5" onSubmit={onSubmitForm}>
         <input
           type="text"

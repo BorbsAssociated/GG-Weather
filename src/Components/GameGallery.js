@@ -2,13 +2,15 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import {gamesByGenera, weathers} from "../data"
 
+
 let tempRandomGameArray2 = [];
 let random = '';
 
-function GameGallery(props){
+function GameGallery(){
 let randomNumUsed = []
-function createGameArrayFromWeather(weather) {
-    switch (weather) {
+
+function createGameArrayFromWeather() {
+    switch ("Rain") {
         case "Mist":
             for (let i = 0; i < 3; i++){
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Western.length));
@@ -416,7 +418,7 @@ async function fetchImages(){
 }
 
 ////fetchImages();
-console.log("url",url)
+//console.log("url",url)
 /////
 
 ////
@@ -429,7 +431,6 @@ return (
 <>
    
 <ul>
-    {url.slice(12)} 
   {url.map((data) => {
     return <li><img src = {data} width = "300" height = "200"/></li>;
   })}
