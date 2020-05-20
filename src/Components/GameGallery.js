@@ -4,6 +4,7 @@ import {gamesByGenera, weathers} from "../data"
 
 
 let tempRandomGameArray2 = [];
+let tempRandomGameArray3 = [];
 let random = '';
 
 function GameGallery(){
@@ -32,7 +33,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Family.length));
                 tempRandomGameArray2.push(gamesByGenera.Family[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Smoke":
             for (let i = 0; i < 3; i++){
@@ -55,7 +56,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Family.length));
                 tempRandomGameArray2.push(gamesByGenera.Family[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Haze":
             for (let i = 0; i < 3; i++){
@@ -78,7 +79,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Mystery.length));
                 tempRandomGameArray2.push(gamesByGenera.Mystery[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Dust":
             for (let i = 0; i < 4; i++){
@@ -97,7 +98,7 @@ function createGameArrayFromWeather() {
                 tempRandomGameArray2.push(gamesByGenera.Mystery[random])
             }
 
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Fog":
             for (let i = 0; i < 3; i++){
@@ -120,7 +121,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Action.length));
                 tempRandomGameArray2.push(gamesByGenera.Action[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Sand":
             for (let i = 0; i < 3; i++){
@@ -143,7 +144,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Family.length));
                 tempRandomGameArray2.push(gamesByGenera.Family[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Ash":
             for (let i = 0; i < 3; i++){
@@ -166,7 +167,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Horror.length));
                 tempRandomGameArray2.push(gamesByGenera.Horror[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Squall":
             for (let i = 0; i < 3; i++){
@@ -189,7 +190,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Horror.length));
                 tempRandomGameArray2.push(gamesByGenera.Horror[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Tornado":
             for (let i = 0; i < 3; i++){
@@ -212,7 +213,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Horror.length));
                 tempRandomGameArray2.push(gamesByGenera.Horror[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Snow":
             for (let i = 0; i < 3; i++){
@@ -235,7 +236,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Action.length));
                 tempRandomGameArray2.push(gamesByGenera.Action[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Rain":
             for (let i = 0; i < 3; i++){
@@ -258,7 +259,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Thriller.length));
                 tempRandomGameArray2.push(gamesByGenera.Thriller[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Drizzle":
             for (let i = 0; i < 3; i++){
@@ -281,7 +282,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Thriller.length));
                 tempRandomGameArray2.push(gamesByGenera.Thriller[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Thunderstorm":
             for (let i = 0; i < 3; i++){
@@ -304,7 +305,7 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Horror.length));
                 tempRandomGameArray2.push(gamesByGenera.Horror[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Clear":
             for (let i = 0; i < 4; i++){
@@ -323,7 +324,7 @@ function createGameArrayFromWeather() {
                 tempRandomGameArray2.push(gamesByGenera.Adventure[random])
             }
 
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
+            //console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         case "Clouds":
             for (let i = 0; i < 3; i++){
@@ -346,16 +347,21 @@ function createGameArrayFromWeather() {
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Western.length));
                 tempRandomGameArray2.push(gamesByGenera.Western[random])
             }
-            console.log("tempRandomGameArray2",tempRandomGameArray2)
             break;
         default:
             // code block
     }
-
+    console.log("tempRandomGameArray2",tempRandomGameArray2)
+    for (let item of tempRandomGameArray2){
+        for (let key in item){
+            tempRandomGameArray3.push(item[key])
+        }
+    }
+    console.log("tempRandomGameArray3",tempRandomGameArray3)
 }
 
 
-let tempRandomGameArray = [22508, 58812, 29338, 254542, 37357, 7689, 274480, 3556, 39, 1438, 59632, 421698]
+//let tempRandomGameArray = [22508, 58812, 29338, 254542, 37357, 7689, 274480, 3556, 39, 1438, 59632, 421698]
 let tempImageSourceArray = []
 
 const [image, setImage] = useState("")
@@ -367,7 +373,7 @@ const [gameURL, setGameURL] = useState([])
 const [url, setUrl] = useState([]);
 
 useEffect(() => {
-    fetchImages()
+    //fetchImages()
     createGameArrayFromWeather("Clear")
 }, [])
 
@@ -397,12 +403,16 @@ useEffect(() => {
 //
 ///
 
+//console.log("Object values", Object.values(tempRandomGameArray2))
+// let tempRandomGameArray3 = Object.values(tempRandomGameArray2)
+// console.log("tempRandomGameArray3",tempRandomGameArray3)
+
 async function fetchImages(){
   async function fetchData(){
-    for (let i=0; i<tempRandomGameArray.length; i++){
+    for (let i=0; i<tempRandomGameArray3.length; i++){
       const response = await axios({
         method: "GET",
-        url: "https://rawg-video-games-database.p.rapidapi.com/games/" + tempRandomGameArray[i],
+        url: "https://rawg-video-games-database.p.rapidapi.com/games/" + tempRandomGameArray3[i],
         headers: {
             "content-type": "application/octet-stream",
             "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
@@ -426,7 +436,7 @@ async function fetchImages(){
 //console.log("tempImageSourceArray", tempImageSourceArray)
 //console.log("URL array", tempImageSourceArray)
 
-//fetchImages()
+fetchImages()
 return ( 
 <>
    
