@@ -7,11 +7,14 @@ let tempRandomGameArray2 = [];
 let tempRandomGameArray3 = [];
 let random = '';
 
-function GameGallery(){
+function GameGallery(props){
 let randomNumUsed = []
+let count = 0;
 
-function createGameArrayFromWeather() {
-    switch ("Rain") {
+function createGameArrayFromWeather(weather) {
+     tempRandomGameArray2 = [];
+     tempRandomGameArray3 = [];
+    switch (weather) {
         case "Mist":
             for (let i = 0; i < 3; i++){
                 random = Math.floor(Math.random() * Math.floor(gamesByGenera.Western.length));
@@ -358,6 +361,8 @@ function createGameArrayFromWeather() {
         }
     }
     console.log("tempRandomGameArray3",tempRandomGameArray3)
+    count++;
+    console.log("Count is ",count)
 }
 
 
@@ -372,10 +377,9 @@ const [gameURL, setGameURL] = useState([])
 const [url, setUrl] = useState([]);
 
 
-
-
 let gameFullInformation = []
 async function fetchImages(){
+    //tempRandomGameArray3.slice(0,12)
   async function fetchData(){
     for (let i=0; i<tempRandomGameArray3.length; i++){
       const response = await axios({
@@ -396,6 +400,7 @@ async function fetchImages(){
   //await setUrl(tempImageSourceArray)
   await setUrl(gameFullInformation)
   //await console.log(url);
+  //tempRandomGameArray3 = [];
 }
 
 
@@ -403,13 +408,19 @@ async function fetchImages(){
   //await console.log(url);
 
 
-fetchImages();
+
 
 //console.log("tempImageSourceArray", tempImageSourceArray)
 //console.log("URL array", tempImageSourceArray)
+//componentDidMount(createGameArrayFromWeather(props.weather))
+
 useEffect(() => {
-    //fetchImages()
-    createGameArrayFromWeather("Clear")
+    fetchImages();
+    console.log("weather is", props.weather)
+    
+    if(!!props.weather && count === 0){
+        createGameArrayFromWeather(props.weather)
+    }
 }, [])
 
 
@@ -417,6 +428,7 @@ return (
 <>
    
 <ul>
+    {/* {url.slice(0,12)} */}
   {url.map((data) => {
     return <li key={uuidv4()}><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(console.log("Image Clicked with ID ", data["id"]))}} width = "300" height = "200"/></li>;
   })}

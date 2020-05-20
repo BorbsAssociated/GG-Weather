@@ -10,20 +10,14 @@ function Weather() {
     const [description,setDescription] = useState("")
     const [tempCelsius, setTempCelsius] = useState("")
     const [tempFarenheit, setTempFarenheit] = useState("")
+    const [submitLocation, setSubmitLocation] = useState("");
 
-    function convertToFarenheit(tempKelvin){
+function convertToFarenheit(tempKelvin){
       return Math.round(((tempKelvin - 273.15) * 9/5 + 32), 1) + "°F";
     }
     function convertTemp(tempKelvin){
       return Math.round((tempKelvin - 273.15), 1) + "°C";
     }
-    
-    // (0K − 273.15) × 9/5 + 32 Kelvin to Farenheit
-    // Math.round(6.688689, 1); => 7
-      
-    //////  WEATHER API FROM PHUONG
-    
-  // const [description, setDescription] = useState("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -40,7 +34,7 @@ function Weather() {
         console.log(error)
       })
 
-      // window.location = "/";
+       //window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
@@ -48,17 +42,17 @@ function Weather() {
 
     return (
         <>
-              <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+        <form className="d-flex mt-5" onSubmit={onSubmitForm}>
         <input
           type="text"
           className="form-control"
           value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => (setLocation(e.target.value))}
         />
-        <button className="btn btn-success">Add City</button>
+        <button className="btn btn-success" onClick={()=>setSubmitLocation(location)}>Add City</button>
       </form>
 
-        <h2>Your city is {location}</h2>
+        <h2>Your city is {submitLocation}</h2>
         <h3>The weather is {weather} </h3>
         <h4>Temperature: {tempCelsius} / {tempFarenheit}</h4>
         <GameGallery key = {uuidv4()} weather = {weather}/>
