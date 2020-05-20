@@ -58,6 +58,7 @@ const SingleGameView = ({gameId, setView}) => {
   return (
     <>
     <button onClick={() => setView("allGamesView")}>Back To Games List</button>
+    <button onClick={() => setView("allGamesView")}>Save In my Database</button>
     <h1>{title}</h1>
     <img src={image} width="700" height ="550" alt="Videogame"></img>
     <img src={image2} width="700" height ="550" alt="Videogame"></img>
@@ -65,8 +66,9 @@ const SingleGameView = ({gameId, setView}) => {
     <h3>Platform: {platform}</h3>
     <h3>Released on: {year}</h3>
     <h3>Published by: {publisher}</h3>
-    <h3>Metacritic Rating: {metacriticRating}</h3>
     <h3>Website: {website}</h3>
+    <h3>Metacritic Rating: {metacriticRating}</h3>
+    
     <video  loop autoPlay>
     <source src={videoClip} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
     <source src={videoClip} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.
