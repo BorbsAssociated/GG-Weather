@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import {gamesByGenera, weathers} from "../data"
-
+import {v4 as uuidv4} from "uuid";
 
 let tempRandomGameArray2 = [];
 let tempRandomGameArray3 = [];
@@ -369,13 +369,68 @@ const [gameTitle, setGameTitle] = useState("")
 const [description, setDescription] = useState("")
 const [rating, setRating] = useState("")
 const [gameURL, setGameURL] = useState([])
-
 const [url, setUrl] = useState([]);
 
+
+
+
+let gameFullInformation = []
+async function fetchImages(){
+  async function fetchData(){
+    for (let i=0; i<tempRandomGameArray3.length; i++){
+      const response = await axios({
+        method: "GET",
+        url: "https://rawg-video-games-database.p.rapidapi.com/games/" + tempRandomGameArray3[i],
+        headers: {
+            "content-type": "application/octet-stream",
+            "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+            "x-rapidapi-key": "5eea2bbb41msh5ba5b5c4f43b1d4p1cf51fjsn19f972efe706",
+        },
+    });
+    gameFullInformation.push(response.data)
+    //console.log(response.data)
+    tempImageSourceArray.push(response.data["background_image"])
+    }
+  }
+  await fetchData();
+  //await setUrl(tempImageSourceArray)
+  await setUrl(gameFullInformation)
+  //await console.log(url);
+}
+
+
+
+  //await console.log(url);
+
+
+fetchImages();
+
+//console.log("tempImageSourceArray", tempImageSourceArray)
+//console.log("URL array", tempImageSourceArray)
 useEffect(() => {
     //fetchImages()
     createGameArrayFromWeather("Clear")
 }, [])
+
+
+return ( 
+<>
+   
+<ul>
+  {url.map((data) => {
+    return <li key={uuidv4()}><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(console.log("Image Clicked with ID ", data["id"]))}} width = "300" height = "200"/></li>;
+  })}
+</ul>
+ 
+</>
+);
+
+}
+export default GameGallery;
+
+
+
+
 
 //////
 // async function fetchImages() {
@@ -406,52 +461,6 @@ useEffect(() => {
 //console.log("Object values", Object.values(tempRandomGameArray2))
 // let tempRandomGameArray3 = Object.values(tempRandomGameArray2)
 // console.log("tempRandomGameArray3",tempRandomGameArray3)
-
-async function fetchImages(){
-  async function fetchData(){
-    for (let i=0; i<tempRandomGameArray3.length; i++){
-      const response = await axios({
-        method: "GET",
-        url: "https://rawg-video-games-database.p.rapidapi.com/games/" + tempRandomGameArray3[i],
-        headers: {
-            "content-type": "application/octet-stream",
-            "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-            "x-rapidapi-key": "5eea2bbb41msh5ba5b5c4f43b1d4p1cf51fjsn19f972efe706",
-        },
-    });
-    tempImageSourceArray.push(response.data["background_image"])
-    }
-  }
-  await fetchData();
-  await setUrl(tempImageSourceArray)
-  //await console.log(url);
-}
-
-////fetchImages();
-//console.log("url",url)
-/////
-
-////
-
-//console.log("tempImageSourceArray", tempImageSourceArray)
-//console.log("URL array", tempImageSourceArray)
-
-fetchImages()
-return ( 
-<>
-   
-<ul>
-  {url.map((data) => {
-    return <li><img src = {data} width = "300" height = "200"/></li>;
-  })}
-</ul>
- 
-</>
-);
-
-}
-export default GameGallery;
-
 
 
 
