@@ -33,7 +33,6 @@ function convertToFarenheit(tempKelvin){
       .catch((error)=>{
         console.log(error)
       })
-
        //window.location = "/";
     } catch (err) {
       console.error(err.message);

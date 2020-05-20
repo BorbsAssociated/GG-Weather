@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import {gamesByGenera, weathers} from "../data"
 import {v4 as uuidv4} from "uuid";
+import SingleGameView from "./SingleGameView"
 
 let tempRandomGameArray2 = [];
 let tempRandomGameArray3 = [];
@@ -375,7 +376,8 @@ const [description, setDescription] = useState("")
 const [rating, setRating] = useState("")
 const [gameURL, setGameURL] = useState([])
 const [url, setUrl] = useState([]);
-
+const [gameId, setGameId] = useState("");
+const [view, setView] = useState("allGamesView")
 
 let gameFullInformation = []
 async function fetchImages(){
@@ -424,18 +426,26 @@ useEffect(() => {
 }, [])
 
 
+if (view === "allGamesView"){
 return ( 
 <>
    
 <ul>
     {/* {url.slice(0,12)} */}
   {url.map((data) => {
-    return <li key={uuidv4()}><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(console.log("Image Clicked with ID ", data["id"]))}} width = "300" height = "200"/></li>;
+    return <li key={uuidv4()}><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(setGameId(data["id"])); setView("singleGameView")}} width = "300" height = "200"/></li>;
   })}
 </ul>
  
 </>
 );
+}
+else if(view === "singleGameView"){
+    return (
+        <SingleGameView gameId = {gameId} setView = {setView}/>
+    )
+}
+
 
 }
 export default GameGallery;
