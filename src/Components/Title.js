@@ -3,9 +3,7 @@ import React from "react";
 function Title() {
     return (
         <>
-            <h1>BORBS ASSOCIATED</h1>
-            <h4>presents</h4>
-            <h1>GG WEATHER</h1>
+            <img src="https://i.ibb.co/YBSR49z/ggweatherbanner2.png"/>
         </>
     )
 }

@@ -13,10 +13,12 @@ import GameGallery from "./Components/GameGallery"
 function App() {
 
   return (
+    <>
     <div className="App">
       <Title />
       <Weather />
     </div>
+    </>
   );
 }
 

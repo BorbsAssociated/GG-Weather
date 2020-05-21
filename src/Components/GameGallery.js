@@ -3,6 +3,7 @@ import axios from "axios";
 import {gamesByGenera, weathers} from "../data"
 import {v4 as uuidv4} from "uuid";
 import SingleGameView from "./SingleGameView"
+import SavedGamesView from "./SavedGamesView"
 
 let tempRandomGameArray2 = [];
 let tempRandomGameArray3 = [];
@@ -12,7 +13,8 @@ function GameGallery(props){
 let randomNumUsed = []
 let count = 0;
 
-function createGameArrayFromWeather(weather) {
+function createGameArrayFromWeather(weather) 
+{
      tempRandomGameArray2 = [];
      tempRandomGameArray3 = [];
     switch (weather) {
@@ -364,10 +366,11 @@ function createGameArrayFromWeather(weather) {
     console.log("tempRandomGameArray3",tempRandomGameArray3)
     count++;
     console.log("Count is ",count)
+
+    fetchImages();
 }
 
 
-//let tempRandomGameArray = [22508, 58812, 29338, 254542, 37357, 7689, 274480, 3556, 39, 1438, 59632, 421698]
 let tempImageSourceArray = []
 
 const [image, setImage] = useState("")
@@ -381,9 +384,9 @@ const [view, setView] = useState("allGamesView")
 
 let gameFullInformation = []
 async function fetchImages(){
-    //tempRandomGameArray3.slice(0,12)
   async function fetchData(){
     for (let i=0; i<tempRandomGameArray3.length; i++){
+        //console.log("test!")
       const response = await axios({
         method: "GET",
         url: "https://rawg-video-games-database.p.rapidapi.com/games/" + tempRandomGameArray3[i],
@@ -396,46 +399,33 @@ async function fetchImages(){
     gameFullInformation.push(response.data)
     //console.log(response.data)
     tempImageSourceArray.push(response.data["background_image"])
+    //console.log("URLL", url)
     }
   }
   await fetchData();
-  //await setUrl(tempImageSourceArray)
   await setUrl(gameFullInformation)
-  //await console.log(url);
-  //tempRandomGameArray3 = [];
+  
 }
 
 
-
-  //await console.log(url);
-
-
-
-
-//console.log("tempImageSourceArray", tempImageSourceArray)
-//console.log("URL array", tempImageSourceArray)
-//componentDidMount(createGameArrayFromWeather(props.weather))
-
 useEffect(() => {
-    fetchImages();
-    console.log("weather is", props.weather)
-    
-    if(!!props.weather && count === 0){
-        createGameArrayFromWeather(props.weather)
+    if (props.weather !== "") {
+        console.log("weather is", props.weather)
+      createGameArrayFromWeather(props.weather);
     }
-}, [])
+}, [props.weather])
 
+///////////////////RENDER SECTION//////////////////
 
 if (view === "allGamesView"){
 return ( 
 <>
-   
-<ul>
-    {/* {url.slice(0,12)} */}
+<button onClick={() => setView("savedGamesView")}>View My Saved Games</button>
+<div className="gameGallery">
   {url.map((data) => {
-    return <li key={uuidv4()}><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(setGameId(data["id"])); setView("singleGameView")}} width = "300" height = "200"/></li>;
+    return <div key={uuidv4()} className="images"><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(setGameId(data["id"])); setView("singleGameView")}}/></div>;
   })}
-</ul>
+</div>
  
 </>
 );
@@ -445,11 +435,13 @@ else if(view === "singleGameView"){
         <SingleGameView gameId = {gameId} setView = {setView}/>
     )
 }
-
-
+else if(view === "savedGamesView"){
+    return(
+        <SavedGamesView setView = {setView}/>
+    )
+}
 }
 export default GameGallery;
-
 
 
 

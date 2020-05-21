@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import firebase from '../FirebaseConfig';
+
+const db = firebase.firestore();
 
 
+//////// ADD TO DATABASE
 const SingleGameView = ({gameId, setView}) => {
 
   const [image, setImage] = useState("")
@@ -52,13 +56,36 @@ const SingleGameView = ({gameId, setView}) => {
     })
   }
 
-
   fetchSingleData(gameId)
   console.log("GameID is ", gameId)
+
+  function savetoDatabase(){
+    db.collection("MyVideogames").add({
+      Description: description,
+      Image: image,
+      Metacritic: metacriticRating,
+      Platform: platform,
+      Publisher: publisher,
+      Rating: rating,
+      Released: year,
+      Title: title,
+      Video: videoClip,
+      Website: website
+    })
+    .then(function() {
+      console.log("Document successfully written!");
+      window.location = "/";
+    })
+    .catch(function(error) {
+      console.error("Error writing document: ", error);
+    });
+  }
+
   return (
     <>
     <button onClick={() => setView("allGamesView")}>Back To Games List</button>
-    <button onClick={() => setView("allGamesView")}>Save In my Database</button>
+    <button onClick={() => savetoDatabase()}>Save In my Database</button>
+    <button onClick={() => setView("savedGamesView")}>View My Saved Games</button>
     <h1>{title}</h1>
     <img src={image} width="700" height ="550" alt="Videogame"></img>
     <img src={image2} width="700" height ="550" alt="Videogame"></img>
