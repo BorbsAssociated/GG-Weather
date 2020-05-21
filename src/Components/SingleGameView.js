@@ -68,14 +68,11 @@ const SingleGameView = ({gameId, setView}) => {
     <h3>Published by: {publisher}</h3>
     <h3>Website: {website}</h3>
     <h3>Metacritic Rating: {metacriticRating}</h3>
-    
+    <h4>Description: {description}</h4>
     <video  loop autoPlay>
     <source src={videoClip} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
     <source src={videoClip} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.
   </video>
-    <h4>Description: {description}</h4>
-    
-
     </>
   )
 }
