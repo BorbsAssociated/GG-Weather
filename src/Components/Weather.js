@@ -25,7 +25,7 @@ function convertToFarenheit(tempKelvin){
     setSubmitLocation(location);
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=89e18fe833ea4fde74592dc27b57d117`
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=89e18fe833ea4fde74592dc27b57d117`
       )
       .then((response) => {
         //set status
@@ -53,7 +53,7 @@ function convertToFarenheit(tempKelvin){
         </button>
       </div>
 
-      <h2>Your city is: {submitLocation} 🌩️ The weather is: {weather} 🌩️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
+      <h2>Your city is: {submitLocation} 🌁 The weather is: {weather} 🌡️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
         <GameGallery key = {uuidv4()} weather = {weather}/>
         </>
     )

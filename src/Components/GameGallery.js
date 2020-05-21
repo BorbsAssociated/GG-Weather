@@ -424,8 +424,7 @@ return (
 <div className="gameGallery">
   {url.map((data) => {
     return <div key={uuidv4()} className="images"><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(setGameId(data["id"])); setView("singleGameView")}}/></div>;
-  })}
-</div>
+  })}</div>
  
 </>
 );
