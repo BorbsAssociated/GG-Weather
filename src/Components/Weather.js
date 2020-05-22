@@ -49,7 +49,7 @@ function convertToFarenheit(tempKelvin){
           onChange={(e) => setLocation(e.target.value)}
         />
         <button className="city-add-button" onClick={onSubmit}>
-          Add City
+          Search City
         </button>
       </div>
 

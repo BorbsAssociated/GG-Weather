@@ -420,7 +420,7 @@ useEffect(() => {
 if (view === "allGamesView"){
 return ( 
 <>
-<button onClick={() => setView("savedGamesView")}>View My Saved Games</button>
+<button className="btn btn-info" onClick={() => setView("savedGamesView")}>View My Saved Games</button>
 <div className="gameGallery">
   {url.map((data) => {
     return <div key={uuidv4()} className="images"><img alt={data["id"]} src = {data["background_image"]} onClick={() =>{(setGameId(data["id"])); setView("singleGameView")}}/></div>;
