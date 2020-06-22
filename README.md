@@ -1,2 +1,2 @@
 # GG-Weather
-Videoggame suggestions based on the weather.
+Video game suggestions based on the weather.
