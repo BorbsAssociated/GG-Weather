@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import axios from "axios";
-import GameGallery from "./GameGallery";
 import {v4 as uuidv4} from "uuid";
 
 function Weather() {
